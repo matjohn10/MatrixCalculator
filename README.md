@@ -31,7 +31,7 @@ Just enter one row after the other following the formats above and input done wh
 
 ## Documentation
 
-###Single matrix
+### Single matrix
 With your matrix, you have multiple possibilities:
 
 | Code    | Effect                                           |
@@ -44,7 +44,7 @@ With your matrix, you have multiple possibilities:
 | exit    | Exit the application                             |
 
 
-###Two matrices
+### Two matrices
 After adding another matrix, using 'add' mentioned above, you have other possibilities:
 
 | Code    | Effect                            |
