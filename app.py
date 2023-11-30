@@ -76,6 +76,7 @@ class App:
                     self.exit = True
                 case "restart":
                     print("Restart initialized")
+                    self.other = None
                     self.input_loop()
                 case "back":
                     self.other = None
