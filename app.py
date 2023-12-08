@@ -10,14 +10,15 @@ class App:
         self.last_error = False
         self.exit = False
         self.matrix: Matrix or None = None
-        self.other: list[list[int]] or None = None
+        self.other: list[list[float]] or None = None
 
     def input_loop(self, init=True):
         matrix = []
-        prev: list[int] or None = None
+        prev: list[float] or None = None
         user_input = input("Enter row (or 'done'): ")
         if user_input.lower() == "exit":
             self.exit = True
+            user_input = "done"
         while user_input.lower() != "done":
             try:
                 row = list_from_string(user_input)
@@ -36,6 +37,7 @@ class App:
             user_input = input("Enter row (or 'done'): ")
             if user_input.lower() == "exit":
                 self.exit = True
+                user_input = "done"
         if init:
             self.matrix = Matrix(matrix)
         else:

@@ -3,7 +3,7 @@ from utils.hooks import *
 
 
 class Matrix:
-    def __init__(self, matrix: list[list[int]]):
+    def __init__(self, matrix: list[list[float]]):
         self.matrix = matrix
 
     def to_string(self):
@@ -53,7 +53,7 @@ class Matrix:
         else:
             print("The matrix is not square.")
 
-    def addition(self, other: list[list[int]]):
+    def addition(self, other: list[list[float]]):
         if 0 < len(self.matrix) == len(other) > 0 and \
                 len(self.matrix[0]) == len(other[0]):
             x = np.array(self.matrix)
@@ -71,7 +71,7 @@ class Matrix:
         else:
             print("Addition error")
 
-    def subtraction(self, other: list[list[int]]):
+    def subtraction(self, other: list[list[float]]):
         if 0 < len(self.matrix) == len(other) > 0 and \
                 len(self.matrix[0]) == len(other[0]):
             x = np.array(self.matrix)
@@ -89,7 +89,7 @@ class Matrix:
         else:
             print("Subtraction error")
 
-    def dot_product(self, other: list[list[int]]):
+    def dot_product(self, other: list[list[float]]):
         x = np.array(self.matrix)
         y = np.array(other)
         try:
@@ -104,7 +104,7 @@ class Matrix:
                   f"not allow\na dot product with the shape of matrix B "
                   f"({len(other)}x{len(other[0])}).")
 
-    def cross_product(self, other: list[list[int]]):
+    def cross_product(self, other: list[list[float]]):
         x = np.array(self.matrix)
         y = np.array(other)
         try:

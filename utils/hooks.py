@@ -7,11 +7,11 @@ def to_string(matrix: list[list[int]]):
     return final + ",\n]"
 
 
-def list_from_string(list_str: str) -> list[int]:
+def list_from_string(list_str: str) -> list[float]:
     if "," in list_str:
-        return [int(s_num) for s_num in list_str.split(", ")]
+        return [float(s_num) for s_num in list_str.split(", ")]
     else:
-        return [int(s_num) for s_num in list_str.split()]
+        return [float(s_num) for s_num in list_str.split()]
 
 
 def help_setup():
