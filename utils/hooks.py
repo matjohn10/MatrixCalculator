@@ -51,6 +51,8 @@ def cmd_help(menu2):
           "Transpose: 'trans'\n\t"
           "Invert: 'invert'\n\tAdd other matrix: 'add'"
           "\n\tRestart: 'restart'\n\tHelp: 'help'"
+          "\n\tClear screen: 'clear'"
+          "\n\tShow matrices: 'show [FLAG]'\n\t\tMain: 'm' or '-m'"
           "\n\tExit: 'exit'") \
         if menu2 is None else print("\n\t"
                                     "Back to main matrix: 'back'\n\t"
@@ -58,6 +60,9 @@ def cmd_help(menu2):
                                     "Subtraction: 'sub'\n\t"
                                     "Dot product: 'dot'\n\t"
                                     "Cross product: 'cross'\n\t"
+                                    "Switch matrix order: 'switch'\n\t"
+                                    "Clear screen: 'clear'\n\t"
+                                    "Show matrices: 'show [FLAG]'\n\t\tMain: 'm' or '-m'\n\t\tOther: 'o' or '-o'\n\t\tBoth: 'b' or '-b'\n\t"
                                     "Exit: 'exit'\n\tHelp: 'help'\n\t"
                                     "Restart: 'restart'")
     print("=======================================")
@@ -70,7 +75,7 @@ def help_setup():
     print("\t\tFollow the following formats:")
     print("\t\tFormat 1:\n\t\t\tEnter row: 1, 2, 3, 4\n\n\t\tFormat 2:\n"
           "\t\t\tEnter row: 1 2 3 4\n")
-    print("\t\tWhen done, input 'done'. (Not case sensitive)")
+    print("\t\tWhen done, input 'done' or press Enter key. (Not case sensitive)")
     print("\t==========================================================")
 
 
