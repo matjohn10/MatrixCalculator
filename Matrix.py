@@ -6,6 +6,15 @@ class Matrix:
     def __init__(self, matrix: list[list[float]]):
         self.matrix = matrix
 
+    def __len__(self):
+        return len(self.matrix)
+
+    def __getitem__(self, item):
+        return self.matrix[item]
+
+    def __str__(self):
+        return str(self.matrix)
+
     def to_string(self):
         if len(self.matrix) == 0:
             return "[]"

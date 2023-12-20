@@ -105,9 +105,35 @@ class App:
                     print(f"The input <{inp}> has no functionality."
                           f" Please try again")
 
+    def check_tokens(self, tokens: list[str]):
+        tokens.reverse()
+        tok = tokens.pop()
+        match tok:
+            case "show":
+                if len(tokens) > 1:
+                    print("ERR: Too many flags with the < show > command.")
+                else:
+                    flag = tokens.pop()
+                    if (flag == "m" or flag == "-m") and self.matrix is not None:
+                        print(f"\nThe main matrix is\n{to_string(self.matrix)}\n")
+                    elif (flag == "o" or flag == "-o") and self.other is not None:
+                        print(f"\nThe main matrix is\n{to_string(self.other)}\n")
+                    elif (flag == "b" or flag == "-b") and self.other is not None and self.matrix is not None:
+                        print(f"\nThe main and the other matrix "
+                              f"are\n{side_by_side_string(self.matrix, self.other)}")
+                    else:
+                        print("ERR: Wrong flags for < show > or no matrices initialized.")
+            case _:
+                print(f"The flag <{tok}> has no functionality."
+                      f" Please try again")
+
     def main_loop(self):
         user_input = input("Matrix Calc > ")
-        self.check_action(user_input.lower())
+        tokens = user_input.split()
+        if len(tokens) == 1:
+            self.check_action(user_input.lower())
+        else:
+            self.check_tokens(tokens)
 
 
 
