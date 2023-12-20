@@ -64,6 +64,8 @@ class App:
                 case "restart":
                     print("Restart initialized")
                     self.input_loop()
+                case "help":
+                    cmd_help(self.other)
                 case _:
                     print(f"The input <{inp}> has no functionality in "
                           f"the current state."
@@ -86,26 +88,13 @@ class App:
                     self.input_loop()
                 case "back":
                     self.other = None
+                case "help":
+                    cmd_help(self.other)
                 case _:
                     print(f"The input <{inp}> has no functionality."
                           f" Please try again")
 
     def main_loop(self):
-        print("=======================================")
-        print("What do you want to do?")
-        print("\tDeterminant: 'det'\n\tTranspose: 'trans'\n\t"
-              "Invert: 'invert'\n\tAdd other matrix: 'add'"
-              "\n\tRestart: 'restart'"
-              "\n\tExit: 'exit'") \
-            if self.other is None else print("\n\t"
-                                             "Back to main matrix: 'back'\n\t"
-                                             "Addition: 'madd'\n\t"
-                                             "Subtraction: 'sub'\n\t"
-                                             "Dot product: 'dot'\n\t"
-                                             "Cross product: 'cross'\n\t"
-                                             "Exit: 'exit'\n\t"
-                                             "Restart: 'restart'")
-        print("=======================================")
         user_input = input("Matrix Calc > ")
         self.check_action(user_input.lower())
 

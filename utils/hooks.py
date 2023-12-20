@@ -14,6 +14,25 @@ def list_from_string(list_str: str) -> list[float]:
         return [float(s_num) for s_num in list_str.split()]
 
 
+def cmd_help(menu2):
+    print("=======================================")
+    print("What do you want to do?")
+    print("\tCreate matrix: 'create'\n\tDeterminant: 'det'\n\t"
+          "Transpose: 'trans'\n\t"
+          "Invert: 'invert'\n\tAdd other matrix: 'add'"
+          "\n\tRestart: 'restart'\n\tHelp: 'help'"
+          "\n\tExit: 'exit'") \
+        if menu2 is None else print("\n\t"
+                                    "Back to main matrix: 'back'\n\t"
+                                    "Addition: 'madd'\n\t"
+                                    "Subtraction: 'sub'\n\t"
+                                    "Dot product: 'dot'\n\t"
+                                    "Cross product: 'cross'\n\t"
+                                    "Exit: 'exit'\n\tHelp: 'help'\n\t"
+                                    "Restart: 'restart'")
+    print("=======================================")
+
+
 def help_setup():
     print("\t==========================================================")
     print("\t\tPlease enter your matrix row by row.")
