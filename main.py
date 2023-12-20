@@ -4,9 +4,7 @@ from utils.hooks import *
 
 def main():
     app = App()
-    help_setup()
-    app.input_loop()
-    while not app.exit:
+    while True:
         app.main_loop()
 
 

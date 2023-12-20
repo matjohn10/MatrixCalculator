@@ -8,17 +8,16 @@ class App:
     def __init__(self):
         self.MAXIMUM_MATRIX = 2
         self.last_error = False
-        self.exit = False
         self.matrix: Matrix or None = None
         self.other: list[list[float]] or None = None
 
     def input_loop(self, init=True):
+        help_setup()
         matrix = []
         prev: list[float] or None = None
         user_input = input("Enter row (or 'done'): ")
         if user_input.lower() == "exit":
-            self.exit = True
-            user_input = "done"
+            exit(1)
         while user_input.lower() != "done":
             try:
                 row = list_from_string(user_input)
@@ -36,8 +35,7 @@ class App:
                 self.last_error = "ValueError"
             user_input = input("Enter row (or 'done'): ")
             if user_input.lower() == "exit":
-                self.exit = True
-                user_input = "done"
+                exit(1)
         if init:
             self.matrix = Matrix(matrix)
         else:
@@ -47,6 +45,8 @@ class App:
     def check_action(self, inp: str):
         if self.other is None:
             match inp:
+                case "create":
+                    self.input_loop()
                 case "det":
                     self.matrix.determinant()
                 case "trans":
@@ -54,9 +54,13 @@ class App:
                 case "invert":
                     self.matrix.invert()
                 case "add":
-                    self.input_loop(False)
+                    if self.matrix is None:
+                        print("Initialise the main matrix first using "
+                              "< create > command.")
+                    else:
+                        self.input_loop(False)
                 case "exit":
-                    self.exit = True
+                    exit(1)
                 case "restart":
                     print("Restart initialized")
                     self.input_loop()
@@ -75,7 +79,7 @@ class App:
                 case "cross":
                     self.matrix.cross_product(self.other)
                 case "exit":
-                    self.exit = True
+                    exit(1)
                 case "restart":
                     print("Restart initialized")
                     self.other = None
