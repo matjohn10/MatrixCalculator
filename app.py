@@ -127,6 +127,51 @@ class App:
                               f"are\n{side_by_side_string(self.matrix, self.other)}")
                     else:
                         print("ERR: Wrong flags for < show > or no matrices initialized.")
+            case "use":
+                if len(tokens) > 2:
+                    print("ERR: Too many flags with the < use > command.")
+                else:
+                    flag = tokens.pop()
+                    if len(tokens) == 0:
+                        print(f"ERR: Missing flag with the < use {flag} [?] > command.")
+                    new_matrix = None
+                    match flag:
+                        case "madd":
+                            if self.other is not None:
+                                new_matrix = self.matrix.addition(self.other, False)
+                            else:
+                                print("ERR: Do not have two matrices.")
+                        case "sub":
+                            if self.other is not None:
+                                new_matrix = self.matrix.subtraction(self.other, False)
+                            else:
+                                print("ERR: Do not have two matrices.")
+                        case "trans":
+                            new_matrix = self.matrix.transpose(False)
+                        case "invert":
+                            new_matrix = self.matrix.invert(False)
+                        case "dot":
+                            if self.other is not None:
+                                new_matrix = self.matrix.dot_product(self.other, False)
+                            else:
+                                print("ERR: Do not have two matrices.")
+                        case "cross":
+                            if self.other is not None:
+                                new_matrix = self.matrix.cross_product(self.other, False)
+                            else:
+                                print("ERR: Do not have two matrices.")
+                        case _:
+                            print("No such command")
+
+                    if new_matrix is not None:
+                        matrix_to_update = tokens.pop()
+                        if matrix_to_update == "m" or matrix_to_update == "-m":
+                            self.matrix = new_matrix
+                        elif matrix_to_update == "o" or matrix_to_update == "-o":
+                            self.other = new_matrix
+                    else:
+                        print("ERR: Wrong commands or format of matrices is wrong.")
+
             case _:
                 print(f"The flag <{tok}> has no functionality."
                       f" Please try again")

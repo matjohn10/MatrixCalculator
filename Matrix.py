@@ -28,11 +28,13 @@ class Matrix:
             return "Empty"
         return f'{len(self.matrix)}x{len(self.matrix[0])}'
 
-    def transpose(self):
+    def transpose(self, vis=True):
         x = np.array(self.matrix)
         t = x.T
-        print(
-            f"\nThe transpose of\n{side_by_side_string(self.matrix, t, ' is')}")
+        if vis:
+            print(
+                f"\nThe transpose of\n{side_by_side_string(self.matrix, t, ' is')}")
+        return Matrix(t)
 
     def determinant(self):
         if len(self.matrix) > 0 and len(self.matrix) == len(self.matrix[0]):
@@ -46,13 +48,15 @@ class Matrix:
         else:
             print("\nThe matrix is not square.\n")
 
-    def invert(self):
+    def invert(self, vis=True):
         if len(self.matrix) > 0 and len(self.matrix) == len(self.matrix[0]):
             x = np.array(self.matrix)
             try:
                 i = np.linalg.inv(x)
-                print(
-                    f"\nThe inverse of\n{side_by_side_string(self.matrix, i, ' is the following: ')}")
+                if vis:
+                    print(
+                        f"\nThe inverse of\n{side_by_side_string(self.matrix, i, ' is the following: ')}")
+                return Matrix(i)
             except np.linalg.LinAlgError:
                 print(f"\nThe matrix\n{to_string(self.matrix)}\n"
                       " does not have an invert.\n")
@@ -61,68 +65,80 @@ class Matrix:
                 "\nThe inverse cannot be calculated as the matrix is empty.\n")
         else:
             print("\nThe matrix is not square.\n")
+        return None
 
-    def addition(self, other: list[list[float]]):
+    def addition(self, other: list[list[float]], vis=True):
         if 0 < len(self.matrix) == len(other) > 0 and \
                 len(self.matrix[0]) == len(other[0]):
             x = np.array(self.matrix)
             y = np.array(other)
 
             d = list(np.add(x, y))
-            print(f"\nThe addition"
-                  f" of\n{side_by_side_string(self.matrix, other, ' and ')}\n"
-                  f"is the following:\n"
-                  f"\n{to_string(d)}\n")
-
+            if vis:
+                print(f"\nThe addition"
+                      f" of\n{side_by_side_string(self.matrix, other, ' and ')}\n"
+                      f"is the following:\n"
+                      f"\n{to_string(d)}\n")
+            return Matrix(d)
         elif len(self.matrix) == 0 or len(other) == 0:
             print("\nThe addition cannot be calculated with an empty matrix\n")
         else:
             print("\nAddition error\n")
+            return None
 
-    def subtraction(self, other: list[list[float]]):
+    def subtraction(self, other: list[list[float]], vis=True):
         if 0 < len(self.matrix) == len(other) > 0 and \
                 len(self.matrix[0]) == len(other[0]):
             x = np.array(self.matrix)
             y = np.array(other)
 
             d = list(np.subtract(x, y))
-            print(f"\nThe subtraction of"
-                  f"\n{side_by_side_string(self.matrix, other, ' and ')}\n"
-                  f"is the following:\n"
-                  f"\n{to_string(d)}\n")
+            if vis:
+                print(f"\nThe subtraction of"
+                      f"\n{side_by_side_string(self.matrix, other, ' and ')}\n"
+                      f"is the following:\n"
+                      f"\n{to_string(d)}\n")
+            return Matrix(d)
 
         elif len(self.matrix) == 0 or len(other) == 0:
             print("\nThe subtraction cannot"
                   " be calculated with an empty matrix.\n")
         else:
             print("\nSubtraction error\n")
+            return None
 
-    def dot_product(self, other: list[list[float]]):
+    def dot_product(self, other: list[list[float]], vis=True):
         x = np.array(self.matrix)
         y = np.array(other)
         try:
             d = list(np.dot(x, y))
-            print(f"\nThe dot product of"
-                  f"\n{side_by_side_string(self.matrix, other, ' and ')}\n"
-                  f"is the following:\n"
-                  f"\n{to_string(d)}\n")
+            if vis:
+                print(f"\nThe dot product of"
+                      f"\n{side_by_side_string(self.matrix, other, ' and ')}\n"
+                      f"is the following:\n"
+                      f"\n{to_string(d)}\n")
+            return Matrix(d)
         except ValueError:
             print(f"\nThe shape of matrix A ({self.properties()}) does "
                   f"not allow\na dot product with the shape of matrix B "
                   f"({len(other)}x{len(other[0])}).\n")
+            return None
 
-    def cross_product(self, other: list[list[float]]):
+    def cross_product(self, other: list[list[float]], vis=True):
         x = np.array(self.matrix)
         y = np.array(other)
         try:
             d = list(np.cross(x, y))
-            print(f"\nThe cross product of"
-                  f"\n{side_by_side_string(self.matrix, other, ' and ')}\n"
-                  f"is the following:\n"
-                  f"\n{to_string(d)}\n")
+            if vis:
+                print(f"\nThe cross product of"
+                      f"\n{side_by_side_string(self.matrix, other, ' and ')}\n"
+                      f"is the following:\n"
+                      f"\n{to_string(d)}\n")
+            return Matrix(d)
         except ValueError:
             print(f"\nThe dimensions of the vectors do not allow cross product "
                   f"calculations.\n")
+            return None
 
 
 if __name__ == "__main__":

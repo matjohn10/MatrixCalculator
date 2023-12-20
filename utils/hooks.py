@@ -13,14 +13,14 @@ def side_by_side_string(matrix: list[list[float]],
     final = ""
     i = 0
     mid = max(len(matrix), len(other)) // 2
-    tabl = (len(middle) + 1) * "‎ "
+    tabl = (len(middle) + 1) * "‎ " if len(middle) > 0 else ""
     while i < min(len(matrix), len(other)):
         for j in range(2):
             if j % 2 == 0:
                 if i == mid:
                     final += str(matrix[i]) + middle + " "
                 else:
-                    final += str(matrix[i]) + tabl
+                    final += str(matrix[i]) + tabl + " "
             else:
                 if i == mid:
                     final += str(other[i]) + "\n"
