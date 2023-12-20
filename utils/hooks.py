@@ -1,10 +1,10 @@
 def to_string(matrix: list[list[float]]):
     if len(matrix) == 0:
         return "[]"
-    final = f'[\n\t{matrix[0]}'
+    final = str(matrix[0])
     for i in range(1, len(matrix)):
-        final += f',\n\t{matrix[i]}'
-    return final + ",\n]"
+        final += f'\n{matrix[i]}'
+    return final
 
 
 def side_by_side_string(matrix: list[list[float]],
@@ -34,7 +34,7 @@ def side_by_side_string(matrix: list[list[float]],
         for leftover in other[i:]:
             tab = "‎ " * (len(matrix[0]) + 2 + (len(matrix[0]) - 1)*2 + len(matrix[0]) * 2)
             final += tab + tabl + str(leftover)
-    return final.strip()
+    return final
 
 
 def list_from_string(list_str: str) -> list[float]:
