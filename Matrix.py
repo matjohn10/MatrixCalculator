@@ -22,8 +22,9 @@ class Matrix:
     def transpose(self):
         x = np.array(self.matrix)
         t = x.T
-        print(f"The transpose of\n{to_string(self.matrix)}\n is the following:"
-              f"\n{to_string(t)}")
+        print(f"The transpose of\n{side_by_side_string(self.matrix, t, ' is')}")
+        # print(f"The transpose of\n{to_string(self.matrix)}\n is the following:"
+        #       f"\n{to_string(t)}")
 
     def determinant(self):
         if len(self.matrix) > 0 and len(self.matrix) == len(self.matrix[0]):

@@ -1,6 +1,7 @@
 from Matrix import Matrix
 from utils.hooks import *
 from Errors import *
+import os
 
 
 class App:
@@ -15,10 +16,11 @@ class App:
         help_setup()
         matrix = []
         prev: list[float] or None = None
+
         user_input = input("Enter row (or 'done'): ")
-        if user_input.lower() == "exit":
-            exit(1)
         while user_input.lower() != "done":
+            if user_input.lower() == "exit":
+                exit(1)
             try:
                 row = list_from_string(user_input)
                 if isinstance(prev, list):
@@ -34,8 +36,7 @@ class App:
                       " Try again")
                 self.last_error = "ValueError"
             user_input = input("Enter row (or 'done'): ")
-            if user_input.lower() == "exit":
-                exit(1)
+
         if init:
             self.matrix = Matrix(matrix)
         else:
@@ -61,6 +62,11 @@ class App:
                         self.input_loop(False)
                 case "exit":
                     exit(1)
+                case "clear":
+                    if os.name == "nt":
+                        os.system('cls')
+                    else:
+                        os.system('clear')
                 case "restart":
                     print("Restart initialized")
                     self.input_loop()
@@ -90,6 +96,11 @@ class App:
                     self.other = None
                 case "help":
                     cmd_help(self.other)
+                case "clear":
+                    if os.name == "nt":
+                        os.system('cls')
+                    else:
+                        os.system('clear')
                 case _:
                     print(f"The input <{inp}> has no functionality."
                           f" Please try again")

@@ -1,10 +1,40 @@
-def to_string(matrix: list[list[int]]):
+def to_string(matrix: list[list[float]]):
     if len(matrix) == 0:
         return "[]"
     final = f'[\n\t{matrix[0]}'
     for i in range(1, len(matrix)):
         final += f',\n\t{matrix[i]}'
     return final + ",\n]"
+
+
+def side_by_side_string(matrix: list[list[float]],
+                        other: list[list[float]],
+                        middle="") -> str:
+    final = ""
+    i = 0
+    mid = max(len(matrix), len(other)) // 2
+    tabl = (len(middle) + 1) * "‎ "
+    while i < min(len(matrix), len(other)):
+        for j in range(2):
+            if j % 2 == 0:
+                if i == mid:
+                    final += str(matrix[i]) + middle + " "
+                else:
+                    final += str(matrix[i]) + tabl
+            else:
+                if i == mid:
+                    final += str(other[i]) + "\n"
+                else:
+                    final += str(other[i]) + "\n"
+        i += 1
+    if len(matrix) > len(other):
+        for leftover in matrix[i:]:
+            final += str(leftover) + "\n"
+    elif len(other) > len(matrix):
+        for leftover in other[i:]:
+            tab = "‎ " * (len(matrix[0]) + 2 + (len(matrix[0]) - 1)*2 + len(matrix[0]) * 2)
+            final += tab + tabl + str(leftover)
+    return final.strip()
 
 
 def list_from_string(list_str: str) -> list[float]:
@@ -42,3 +72,10 @@ def help_setup():
           "\t\t\tEnter row: 1 2 3 4\n")
     print("\t\tWhen done, input 'done'. (Not case sensitive)")
     print("\t==========================================================")
+
+
+if __name__ == "__main__":
+    m = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+    o = [[7, 7], [8, 8], [9, 9]]
+    print(side_by_side_string(m, o, " is"))
+
