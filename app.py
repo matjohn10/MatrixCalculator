@@ -82,6 +82,10 @@ class App:
                     self.matrix.addition(self.other)
                 case "sub":
                     self.matrix.subtraction(self.other)
+                case "switch":
+                    temp = self.matrix
+                    self.matrix = self.other
+                    self.other = temp
                 case "dot":
                     self.matrix.dot_product(self.other)
                 case "cross":
