@@ -90,7 +90,8 @@ After adding another matrix, using 'add' mentioned above, you have other possibi
 | restart     | Restart with a new matrix (both)              |
 | exit        | Exit the application                          |
 <br>
-#### Command 'use'  
+
+### Command 'use'
 The use command needs two options, the operation and where to store it.
 
 ```commandline
