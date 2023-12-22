@@ -23,5 +23,8 @@ setup(
         "console_scripts": ["matcalc=matrixcalc.command_line:run"],
     },
     install_requires=["numpy >= 1.26.2"],
+    extras_require={
+        "dev": ["pytest>=7.4", "twine>=4.0.2"]
+    },
     python_requires=">=3.10",
 )

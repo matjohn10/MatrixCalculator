@@ -1,6 +1,6 @@
-from Matrix import Matrix
-from utils.hooks import *
-from Errors import *
+from matrixcalc.Matrix import Matrix
+from matrixcalc.hooks import *
+from matrixcalc.Errors import *
 import os
 
 

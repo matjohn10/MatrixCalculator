@@ -1,5 +1,4 @@
-from app import App
-from utils.hooks import *
+from matrixcalc.app import App
 
 
 def main():

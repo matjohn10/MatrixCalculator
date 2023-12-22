@@ -1,5 +1,5 @@
-import main
+from matrixcalc.main import main
 
 
 def run():
-    main.main()
+    main()

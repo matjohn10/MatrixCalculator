@@ -1,5 +1,5 @@
 import numpy as np
-from utils.hooks import *
+from matrixcalc.hooks import *
 
 
 class Matrix:

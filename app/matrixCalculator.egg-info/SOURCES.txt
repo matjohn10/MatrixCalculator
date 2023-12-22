@@ -13,4 +13,5 @@ app/matrixcalc/Row.py
 app/matrixcalc/__init__.py
 app/matrixcalc/app.py
 app/matrixcalc/command_line.py
+app/matrixcalc/hooks.py
 app/matrixcalc/main.py
