@@ -1,3 +1,19 @@
+Metadata-Version: 2.1
+Name: matrixCalculator
+Version: 0.1.1
+Summary: A matrix calculator in your command line.
+Home-page: https://github.com/matjohn10/MatrixCalculator
+Author: Mathieu Johnson
+Author-email: mathieujohnson10@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE.txt
+
 # Matrix Calculator
 
 Simple and usable in the terminal/command line.
@@ -8,16 +24,16 @@ More features will be added in the future.
 
 ## Easy start
 
-Make sure you have at least Python 3.10 installed on your computer with pip.
+After cloning the repository to your machine and moving to the directory, make sure that you install numpy.
 
 ```commandline
-$ pip3 install matrixCalculator
+pip3 install numpy
 ```
 
 Furthermore, use the terminal/commandline to start the app:
 
 ```commandline
-$ matcalc
+python3 main.py
 ```
 
 The following should appear:
@@ -108,3 +124,5 @@ The possible operations are:
 The possible locations are:
 - Main matrix (m or -m)
 - Other matrix (o or -o)
+
+
