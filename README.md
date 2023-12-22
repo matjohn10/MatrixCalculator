@@ -8,16 +8,16 @@ More features will be added in the future.
 
 ## Easy start
 
-After cloning the repository to your machine and moving to the directory, make sure that you install numpy.
+Make sure you have at least Python 3.10 installed on your computer with pip.
 
 ```commandline
-pip3 install numpy
+$ pip3 install matrixCalculator
 ```
 
 Furthermore, use the terminal/commandline to start the app:
 
 ```commandline
-python3 main.py
+$ matcalc
 ```
 
 The following should appear:

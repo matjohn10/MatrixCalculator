@@ -18,9 +18,11 @@ class App:
         prev: list[float] or None = None
 
         user_input = input("Enter row (or 'done'): ")
+
         while user_input and user_input.lower() != "done":
             if user_input.lower() == "exit":
                 exit(1)
+
             try:
                 row = list_from_string(user_input)
                 if isinstance(prev, list):
