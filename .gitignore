@@ -1,1 +1,3 @@
 app/matrixcalc/Row.py
+build/*
+dist/*
