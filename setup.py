@@ -4,8 +4,8 @@ with open("app/README.md", "r") as f:
     long_description = f.read()
 
 setup(
-    name="matrixCalculator",
-    version="0.1.1",
+    name="MatrixCalcs",
+    version="1.0.1",
     description="A matrix calculator in your command line.",
     package_dir={"": "app"},
     packages=find_packages(where="app"),
